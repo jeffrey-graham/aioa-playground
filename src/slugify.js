@@ -1,14 +1,14 @@
+'use strict';
+
 /**
- * Converts a string into a URL-friendly slug.
- *
- * @param {string} input
- * @returns {string}
+ * Turn a human title into a URL slug.
+ *   "Hello, World!"  -> "hello-world"
+ *   "  Ünïcode Café " -> "unicode-cafe"
  */
 function slugify(input) {
   if (typeof input !== 'string') {
-    throw new TypeError('Expected a string');
+    throw new TypeError('slugify expects a string');
   }
-
   return input
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
